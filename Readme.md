@@ -12,7 +12,7 @@ Service runs on http://localhost:8000
 ## Endpoints
 POST /data – Add a data sample { "text": "...", "label": "..." }
 
-GET /data?label=... – List samples
+GET /data =... – List samples
 
 POST /train – Train the model
 
