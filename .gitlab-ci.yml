@@ -1,6 +1,7 @@
 stages:
-    - lint
-    - build
+  - lint
+  - test
+  - build
 
 lint:
   stage: lint
@@ -8,9 +9,22 @@ lint:
   before_script:
     - pip install black
   script:
-    - black --check app/
+    - black --check app/ tests/
+
+test:
+  stage: test
+  image: python:3.12
+  before_script:
+    - pip install -r requirements.txt
+    - pip install pytest
+  script:
+    - set ENV=test
+    - pytest
 
 build:
   stage: build
+  image: docker:latest
+  services:
+    - docker:dind
   script:
     - docker build -t ml-app .
