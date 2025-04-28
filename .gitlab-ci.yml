@@ -1,0 +1,16 @@
+stages:
+    - lint
+    - build
+
+lint:
+  stage: lint
+  image: python:3.12
+  before_script:
+    - pip install black
+  script:
+    - black --check app/
+
+build:
+  stage: build
+  script:
+    - docker build -t ml-app .

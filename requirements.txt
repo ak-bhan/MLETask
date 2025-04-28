@@ -1,0 +1,8 @@
+fastapi
+pandas
+pymongo
+pytest
+scikit-learn
+pydantic
+uvicorn
+httpx
